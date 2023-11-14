@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Contador"
+             x:Class="ContadorManual.MainPage"
+             >
+
+    <VerticalStackLayout Margin="16" Spacing="10">
+        <Label Text="Cantidad: " Margin="4"/>
+        <Border Margin="4">
+            <VerticalStackLayout>
+                <Label
+                    Text="{Binding Path=Cantidad}"
+                    Margin="16"
+                    Padding="10"
+                    FontSize="Small"
+                    FontAttributes="Italic"
+                    HorizontalTextAlignment="Center"/>
+            </VerticalStackLayout>
+        </Border>
+
+        <Label Text="{Binding Path=Value, Source={x:Reference LineaIncremento}, StringFormat='{}Incremento: {0:F0}'}" />
+
+        <Slider Minimum="1" Maximum="10" x:Name="LineaIncremento" BackgroundColor="Violet" Background="violet"/>
+
+        <HorizontalStackLayout Margin="16" Spacing="16" HorizontalOptions="Center">
+            <Button Text="Contar" WidthRequest="130" Clicked="ContadorBoton" BackgroundColor="Cyan"/>
+            <Button Text="Reiniciar" WidthRequest="130" Clicked="BotonReiniciar" BackgroundColor="Cyan"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+
+</ContentPage>
